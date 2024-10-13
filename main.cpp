@@ -239,7 +239,10 @@ int main() {
     DoublyLinkedList list;
    
     int size = rand() % (MAX_LS-MIN_LS+1) + MIN_LS; 
-    int del2 = rand() % size;
+    int newSize = size - 3; // 3 b/c index of list starts at 0 and we delete two nodes before deleting by poisition
+
+    int del2 = rand() % newSize;   
+   
      
    
     for (int i = 0; i < size; ++i)
@@ -260,7 +263,7 @@ int main() {
     cout<<endl; 
 
     cout<<"Deleting the "<<del2 + 1<<" node: ";
-    list.delete_pos(13);
+    list.delete_pos(del2);
     list.print();
     cout<<endl;
     
