@@ -131,7 +131,7 @@ class DoublyLinkedList {
         void pop_front()  // Deletes the head node
         {
             if(!head)
-                return; 
+                return; //empty list
 
             Node * temp = head; 
             head = head->next; 
@@ -141,7 +141,21 @@ class DoublyLinkedList {
 
             delete temp; 
         }
-           
+
+        void pop_back() 
+        {
+            if(!head)
+                return; //empty list
+
+            Node * temp = tail; 
+            tail = tail->prev; 
+
+            if(tail != nullptr)
+                tail->next = nullptr; 
+
+            delete temp;    
+        }
+
         void print()
        
         {
@@ -192,11 +206,18 @@ int main() {
    
     cout << "List forward: ";
     list.print();
+    cout<<endl; 
    
     cout<<"Deleting the first node: ";
     list.pop_front();
+    list.print();
+    cout<<endl;  
+
+    cout<<"Deleting the last node: "; 
+    list.pop_back(); 
     list.print(); 
-    
+    cout<<endl; 
+
     /*cout << "List backward: ";
     list.print_reverse();
    
