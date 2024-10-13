@@ -164,11 +164,24 @@ class DoublyLinkedList {
             Node * temp = head; 
             int count = 0; 
 
+            if(temp == nullptr)
+                return; 
+
             while(temp != nullptr && count < pos)
             {
                 temp = temp->next;
                 count++;
             }     
+
+            if(temp->prev)     
+            {
+                temp->prev->next = temp->next;
+            }
+            if(temp->next)
+            {
+                temp->next->prev = temp->prev; 
+            }
+            delete temp;
 
 
         }
@@ -217,6 +230,7 @@ int main() {
     DoublyLinkedList list;
    
     int size = rand() % (MAX_LS-MIN_LS+1) + MIN_LS;
+    int del = rand() % size; 
    
     for (int i = 0; i < size; ++i)
         list.push_back(rand() % (MAX_NR-MIN_NR+1) + MIN_NR);
@@ -235,14 +249,20 @@ int main() {
     list.print(); 
     cout<<endl; 
 
-    /*cout << "List backward: ";
+    cout<<"Deleting the "<<del + 1<<" node: ";
+    list.delete_pos(del);
+    list.print();
+    cout<<endl;
+    
+    cout << "List backward: ";
     list.print_reverse();
+    cout<<endl; 
    
     cout << "Deleting list, then trying to print.\n";
     list.~DoublyLinkedList();
    
     cout << "List forward: ";
     list.print();
-    */
+    
 return 0;
 }
