@@ -177,9 +177,18 @@ class DoublyLinkedList {
             {
                 temp->prev->next = temp->next;
             }
+            else 
+            {
+                head = temp->next;
+            }
+
             if(temp->next)
             {
                 temp->next->prev = temp->prev; 
+            }
+            else 
+            {
+                tail = temp->prev; 
             }
             delete temp;
 
@@ -229,8 +238,9 @@ int main() {
    
     DoublyLinkedList list;
    
-    int size = rand() % (MAX_LS-MIN_LS+1) + MIN_LS;
-    int del = rand() % size; 
+    int size = rand() % (MAX_LS-MIN_LS+1) + MIN_LS; 
+    int del2 = rand() % size;
+     
    
     for (int i = 0; i < size; ++i)
         list.push_back(rand() % (MAX_NR-MIN_NR+1) + MIN_NR);
@@ -249,8 +259,8 @@ int main() {
     list.print(); 
     cout<<endl; 
 
-    cout<<"Deleting the "<<del + 1<<" node: ";
-    list.delete_pos(del);
+    cout<<"Deleting the "<<del2 + 1<<" node: ";
+    list.delete_pos(13);
     list.print();
     cout<<endl;
     
