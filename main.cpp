@@ -156,12 +156,20 @@ class DoublyLinkedList {
             delete temp;    
         }
 
-        void delete_pos()
+        void delete_pos(int pos)
         {
             if(!head)
                 return; // empty list
 
-            
+            Node * temp = head; 
+            int count = 0; 
+
+            while(temp != nullptr && count < pos)
+            {
+                temp = temp->next;
+                count++;
+            }     
+
 
         }
 
