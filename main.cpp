@@ -95,7 +95,7 @@ class DoublyLinkedList {
             temp->next = newNode;
         }
        
-        void delete_node(int value)
+        void delete_val(int value)
         {
             if (!head) return; // Empty list
            
@@ -154,6 +154,15 @@ class DoublyLinkedList {
                 tail->next = nullptr; 
 
             delete temp;    
+        }
+
+        void delete_pos()
+        {
+            if(!head)
+                return; // empty list
+
+            
+
         }
 
         void print()
